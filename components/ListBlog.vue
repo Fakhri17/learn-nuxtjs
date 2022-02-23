@@ -10,7 +10,7 @@
           <p></p>
           <div class="justify-end card-actions">
             <NuxtLink :to="`${mountain.slug}`">
-              <button class="btn btn-primary">Read More</button>
+              <button class="btn btn-accent">Read More</button>
             </NuxtLink>   
           </div>
         </div>

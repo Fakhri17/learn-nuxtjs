@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <h1 class="text-center py-8 font-bold text-2xl"> WELCOME TO MY BLOG </h1>
-    <div class="my-5">
-      <ListBlog />
-    </div>
+  <div class="py-8">
+    <h1 class="text-center py-5 font-bold text-4xl"> WELCOME TO MY BLOG </h1>
+     <ListBlog />
   </div>
 </template>
 
