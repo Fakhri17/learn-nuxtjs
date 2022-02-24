@@ -38,7 +38,7 @@
         } 
         else {
           this.$nuxt.error({ statusCode: 404, message: 'Data not found' })
-          throw new Error('Post not found') 
+          
         }
         
     }
