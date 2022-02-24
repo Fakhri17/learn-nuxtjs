@@ -1,7 +1,7 @@
 <template>
   <div class="py-8">
-    <p v-if="$fetchState.pending" class="text-center font-bold" >Fetching montains detail mountains...</p>
-    <p v-else-if="$fetchState.error" class="text-center font-bold" >An error occurred :(</p>
+    <p v-if="$fetchState.pending" class="text-center font-bold">Fetching montains detail mountains...</p>
+    <p v-else-if="$fetchState.error" class="text-center font-bold">An error occurred :(</p>
     <div v-else>
       <h1 class="text-center font-bold py-5 text-5xl">{{ mountain.title }}</h1>
       <p class="text-center">Created At: {{ mountain.updatedAt | formatDate('MM-DD-YYYY') }}</p>
@@ -13,27 +13,35 @@
         <p class="font-semibold text-lg leading-relaxed">{{ mountain.description }}</p>
       </div>
     </div>
-    
+
   </div>
 </template>
 
 <script>
- export default {
+  export default {
     name: 'SlugIndexPage',
     layout(context) {
       return 'DefaultBase'
     },
-    data(){
+    data() {
       return {
         mountain: [],
         countries: '',
       }
     },
     async fetch() {
-      this.mountain = await fetch(
-        `https://api.nuxtjs.dev/mountains/${this.$route.params.slug}`
-      ).then(res => res.json())
-      this.countries = this.mountain.countries[0]
+      const response = await fetch(`https://api.nuxtjs.dev/mountains/${this.$route.params.slug}`)
+        .then((res) => res.json())
+        if (response.slug === this.$route.params.slug) {
+          this.mountain = response
+          this.countries = response.countries[0]
+        } 
+        else {
+          this.$nuxt.error({ statusCode: 404, message: 'Data not found' })
+          throw new Error('Post not found') 
+        }
+        
     }
- }
+  }
+
 </script>
