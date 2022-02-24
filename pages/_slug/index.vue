@@ -4,7 +4,7 @@
     <p v-else-if="$fetchState.error" class="text-center font-bold" >An error occurred :(</p>
     <div v-else>
       <h1 class="text-center font-bold py-5 text-5xl">{{ mountain.title }}</h1>
-      <p class="text-center">Created At: {{ mountain.updatedAt | FormatDate }}</p>
+      <p class="text-center">Created At: {{ mountain.updatedAt | formatDate('MM-DD-YYYY') }}</p>
       <img class="h-80 max-w-full object-cover mx-auto my-5" :src="`${mountain.image}`" alt="Title">
       <div class="max-w-5xl mx-auto">
         <h2 class="font-bold text-xl">Height: {{ mountain.height }}</h2>
@@ -18,16 +18,8 @@
 </template>
 
 <script>
- import moment from "moment";
-
  export default {
     name: 'SlugIndexPage',
-    filters: {
-      FormatDate(value){
-         if(value)
-          return moment(String(value)).format('MM-DD-YYYY');
-      }
-    },
     layout(context) {
       return 'DefaultBase'
     },

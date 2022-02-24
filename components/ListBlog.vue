@@ -7,7 +7,7 @@
          <img class="h-64 object-cover" :src="`${mountain.image}`" alt="Title">
         <div class="card-body">
           <h2 class="card-title">{{ mountain.title }}</h2>
-          <p></p>
+          <p>Created At: <span class="font-bold">{{ mountain.updatedAt | formatDate('MM-DD-YYYY') }}</span></p>
           <div class="justify-end card-actions">
             <NuxtLink :to="`${mountain.slug}`">
               <button class="btn btn-accent">Read More</button>
