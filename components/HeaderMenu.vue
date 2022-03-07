@@ -7,20 +7,25 @@
         <div class="flex md:hidden" @click="showMenu = !showMenu">
           <button type="button" class="text-gray-800 hover:text-gray-400 focus:outline-none focus:text-gray-400">
             <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-              <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
+              <path fill-rule="evenodd"
+                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
               </path>
             </svg>
           </button>
         </div>
       </div>
-      <ul class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0" :class="showMenu ? 'flex' : 'hidden'">
+      <ul class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
+        :class="showMenu ? 'flex' : 'hidden'">
         <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
-            <NuxtLink to="/about">about</NuxtLink>
+          <NuxtLink to="/about">about</NuxtLink>
         </li>
         <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
           <NuxtLink to="/contact">contact</NuxtLink>
         </li>
       </ul>
+      <div>
+        <input  type="checkbox" class="toggle" @click="coba">
+      </div>
     </nav>
   </div>
 </template>
@@ -32,6 +37,22 @@
         showMenu: false,
       };
     },
+    methods: {
+      coba() {
+        const toggle = document.querySelector('input[type="checkbox"]')
+        const dataTheme = document.documentElement
+
+        if (toggle.checked === true) {
+          dataTheme.setAttribute('data-theme', 'dark')
+          console.log('dark')
+        }
+        else{
+          dataTheme.setAttribute('data-theme', 'light')
+          console.log('light')
+        }
+
+      }
+    }
   };
 
 </script>
