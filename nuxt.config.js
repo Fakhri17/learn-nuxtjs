@@ -69,4 +69,9 @@ export default {
       },
     },
   },
+
+  target: 'static',
+  router: {
+    base: '/learn-nuxtjs/'
+  }
 }
