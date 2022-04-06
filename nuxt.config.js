@@ -9,6 +9,10 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      { body: true, src: 'https://unpkg.com/date-holidays/dist/umd.min.js' },
+      
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
